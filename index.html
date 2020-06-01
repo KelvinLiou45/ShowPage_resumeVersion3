@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- bootstrap font awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <div class="nav_inner">
+                <div class="nav_title">
+                    <h1>K.</h1>
+                    <p>MADE BY</p>
+                    <p>KELVIN</p>
+                </div>
+
+                <ul class="nav_ul">
+                    <li class="">
+                        <!-- <p class="ch">首頁</p> -->
+                        <!-- <p class="en">Home</p> -->
+                        <!-- <router-link class="en" to="{ name: 'home', params: { userId: 123 }}">Home</router-link> -->
+                        <router-link class="en" to="/home" active-class="active" params="{ header:'123' }">Home
+                        </router-link>
+                    </li>
+                    <li>
+                        <!-- <p class="ch">關於我</p> -->
+                        <!-- <p class="en">About Me</p> -->
+                        <!-- <router-link class="en" to="{ name:'about', params:{}}">About</router-link> -->
+                        <router-link class="en" to="/about" active-class="active" params="{ header:'123' }">About Me
+                        </router-link>
+                    </li>
+                    <li>
+                        <!-- <p class="ch">作品集</p> -->
+                        <!-- <p class="en">Portfolio</p> -->
+                        <router-link class="en" to="/portfolio" active-class="active" params="{ header:'123' }">
+                            Portfolio</router-link>
+                    </li>
+                    <li>
+                        <!-- <p class="ch">聯絡我</p> -->
+                        <p class="en">Contact Me (104)</p>
+                    </li>
+                </ul>
+
+                <div class="nav_logo">
+                    <i class="fa fa-google"></i>
+                    <a href="https://github.com/KelvinLiou45"><i class="fa fa-github"></i></a>
+                    <a href="mailto:kelvinliou45@gmail.com"><i class="fa fa-envelope-o"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <router-view></router-view>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script> -->
+
+    <script>
+
+        let Home = Vue.component('home', {
+            template: `<transition name="fade" appear=true><article>
+    <div class="article_inner">
+        <introduce imgurl="./img/avatar.jpg" title="立志成為 前端開發職人"
+            content="我是一名熱衷於學習的前端開發人員，既使工作再忙碌，也會利用休閒時間進修自己。現今除了學習程式語言以外，由於我對實用、美麗的設計相當感興趣，所以對於UX/UI也略有著墨學習，希望終有一日能將自身所學回饋於社會，並感動他人。">
+        </introduce>
+        <div class="line">
+            Manners maketh man.
+        </div>
+        <expersion title="工作經歷、學歷"></expersion>
+        <div class="line">
+            You are braver than you believe.
+        </div>
+        <skill title="技能綜述"></skill>
+    </div>
+</article></transition>`
+        })
+        //introduce start(Home)
+        Vue.component('introduce', {
+            props: ['imgurl', 'title', 'content'],
+            template: `<div class="introduce">
+            <div class="introduce_inner container">
+                <div class="row">
+                    <div class="pic col-12">
+                        <img :src="imgurl" alt="">
+                    </div>
+                    <div class="title col-12">
+                        <p>{{ title }}</p>
+                    </div>
+                    <div class="content col-12">
+                        <p>{{ content }}</p>
+                    </div>
+                    <!-- <div class="line col-12"></div> -->
+                    <div class="other col-12">
+                        <div class="color"></div>
+                        <div class="color"></div>
+                        <div class="color"></div>
+                        <div class="color"></div>
+                        <div class="color"></div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+        })
+        //introduce end
+
+        // expersion start(Home)
+        Vue.component('expersion', {
+            props: ['title'],
+            template: `<div class="expersion">
+            <div class="expersion_inner container">
+                <div class="article-title">
+                    {{title}}
+                </div>
+                <div class="row">
+                    <expersion_box imgurl="img/fujitec.png"
+                    time="2020/06 - 2017/04"
+                    company="富士達股份有限公司"
+                    job="營業專員"
+                    content="FUJITEC是日本前四大的升降梯生產商，我主要負責拓展台灣高屏地區的市場。任職期間，順利的與數名新客戶締結合作關係，營業額約莫5千6百萬。為了朔造日商形象，協助營業單位重新製作銷售簡介。
+                    "></expersion_box>
+                    
+                    <expersion_box imgurl="img/create.jpg"
+                    time="2017/02 - 2014/12"
+                    company="茂訊電腦股份有限公司"
+                    job="業務、客服工程師"
+                    content="茂訊
+                                    是代理眾多筆電品牌的經銷商，前期我擔任門市及展場的銷售業務，後期則是負責售後服務的客服工程師。除了學習到門市經營所需的基本事務，也了解到從'銷售'到'服務'的一條龍工作方式。"></expersion_box>
+
+                    <expersion_box imgurl="img/stu.jpg"
+                    time="2017/02 - 2014/12"
+                    company="樹德科技大學"
+                    job="學士、助教"
+                    content="就學期間順利通過java的oracle考試認證(OCJP)，以及考取Parallax Certified Professional (PCP)證照。認真負責任的學習態度，也讓我有機會擔任'課程'助教的工作，協助製作教材、並體驗難得的授課經驗。
+                    "></expersion_box>
+                </div>
+            </div>
+        </div>`
+        })
+        Vue.component('expersion_box', {
+            props: ['imgurl', 'time', 'company', 'job', 'content'],
+            template: `<div class="expersion_box col-lg-4 col-md-6 col-12">
+                        <div class="box_inner">
+                            <img :src="imgurl" alt="">
+                            <div class="time">{{time}}</div>
+                            <div class="company">{{company}}</div>
+                            <div class="job">{{job}}</div>
+                            <div class="content">
+                                <p>{{content}}</p>
+                            </div>
+                            <div v-if="company == '富士達股份有限公司'" class="other">
+                                <div class="color" style="background:#4195dc"></div>
+                                <div class="color" style="background:#77334b"></div>
+                                <div class="color" style="background:#ed3534"></div>
+                                <div class="color" style="background:#51393c"></div>
+                                <div class="color" style="background:#6c8096"></div>
+                            </div>
+                            <div v-else-if="company == '茂訊電腦股份有限公司'" class="other">
+                                <div class="color" style="background:#303922"></div>
+                                <div class="color" style="background:#ca4a4d"></div>
+                                <div class="color" style="background:#3982aa"></div>
+                                <div class="color" style="background:#8ec0de"></div>
+                                <div class="color" style="background:#a3a0a4"></div>
+                            </div>
+                            <div v-else-if="company == '樹德科技大學'" class="other">
+                                <div class="color" style="background:#759135"></div>
+                                <div class="color" style="background:#32351c"></div>
+                                <div class="color" style="background:#c1cda3"></div>
+                                <div class="color" style="background:#8399a5"></div>
+                                <div class="color" style="background:#765c51"></div>
+                            </div>
+                        </div>
+                    </div>`
+        })
+        // expersion end
+
+        //skill start(Home)
+        Vue.component('skill', {
+            props: ['title'],
+            data: function () {
+                return {
+                    pLanguage: ['HTML', 'CSS', 'JavaScript', 'Java', 'PHP'],
+                    framework: ['Bootstrap', 'Vue.js'],
+                    API: ['Bootstrap', 'YahooWeather'],
+                    DBMS: ['MySQL'],
+                    other: ['Git'],
+                    ux: ['Photoshop']
+                }
+            },
+            template: ` <div class="skill">
+            <div class="skill_inner container">
+                <div class="article-title">
+                    技能綜述
+                </div>
+                <div class="row">
+                    <skill_box title="程式語言" :skills="this.pLanguage"></skill_box>
+                    <skill_box title="框架" :skills="this.framework"></skill_box>
+                    <skill_box title="API" :skills="this.API"></skill_box>
+                    <skill_box title="DBMS" :skills="this.DBMS"></skill_box>
+                    <skill_box title="Others" :skills="this.other"></skill_box>
+                    <skill_box title="UX/UI" :skills="this.ux"></skill_box>
+                </div>
+            </div>
+        </div>`
+        })
+        Vue.component('skill_box', {
+            props: ['title', 'skills'],
+            template: `<div class="skill_box col-12">
+                        <p>{{ title }}:</p>
+                        <span v-for="skill in skills">{{ skill }}</span>
+                    </div>`
+        })
+        //skill end
+
+        //--------------------------------------
+
+        let About = Vue.component('about', {
+            template: `<transition name="fade" appear=true><article>
+                <h1 class="pageTitle">About Me</h1>
+        <div class="article_inner">
+            <div class="about">
+                <div class="about_inner container">
+                    <div class="row">
+
+                        <art title="個人介紹"
+                            content="我的名字是劉承楷，也可以稱呼我為Kelvin，出生於高雄，家中成員有媽媽及一個哥哥。從小家中雖然不算富裕，但家裡秉持著正派的言教及身教，使我養成了「誠實」及「踏實」的性格，不但比較容易找到知心的朋友，也時常能受到師長的信賴。也因為這個原因，不乏有擔任幹部及助教的經驗，不但讓學習生涯更為豐富，也培養了自己在工作上的責任心。">
+                        </art>
+
+                        <art2 title="工作經歷" sec1="- 富士達股份有限公司" sec2="- 茂訊電腦股份有限公司" sec3="- 不二致果(高雄不二家)" content1="FUJITEC
+                        是日本前四大的升降梯生產商，我主要負責拓展台灣高屏地區的市場。任職期間順利與數名新客戶締結合作關係，營業額約莫5千6百萬。為了朔造日商形象，協助營業單位重新製作銷售簡介。
+                    " content2="茂訊
+                    是代理眾多筆電品牌的經銷商，前期我擔任門市及展場的銷售業務，後期則是負責售後服務的客服工程師。除了學習到門市經營所需的基本事務，也了解到從'
+                            銷售'到'服務'的一條龍工作方式。 " content3="
+                            學生時期的打工經驗，負責產品的包裝及裝箱作業。因為受到主管的賞識，被挑選為小組長，帶領4名工讀生進行訂單的包裝作業。這對於初次步入職場的自己，是一個很大的肯定。 ">
+                        </art2>
+
+
+                        <art title="興趣及期勉" content="我平時喜歡閱讀設計、心理學相關的書籍，也喜歡看日本的電影及綜藝節目。我喜歡日本的原因，除了他們的設計水平相當高之外，他們特有的「職人精神」也讓我深深的著迷。
+                        「職人精神」不只是對於工作的敬業態度，它的表現也能牽引身邊的事物，甚至是改變社會 (在 <a
+                            href='https://zh.wikipedia.org/wiki/%E5%85%A8%E8%83%BD%E4%BD%8F%E5%AE%85%E6%94%B9%E9%80%A0%E7%8E%8B'>大改造!!劇的ビフォーアフター</a>
+                        中你可以看得到)。
+                        所以我時常鞭策自己努力提升能力，希望自己的專業也能帶有一份「職人精神」，創造出另人滿意及感動的服務。"></art>
+                        
+                        <art title="未來展望"
+                            content="從事銷售工作多年，突然轉職為軟體工程師是一項相當大的決定。除了希望自己能有更強的專業能力，塑造自己所希望的職人形象以外。另一方面也是希望能藉有自己的努力，創造穩定的收入回饋給家庭。「每天都要比昨天的自己更進步」是我現在秉持的座右銘，既使現在的我在於開發的能力還不夠專業，但結合我多年的行銷經驗，我期望在未來的5年養成足以擔任PM的能力，我也相信只要秉持著「認真努力」及「願意付出」的工作態度，自己一定可以做得到。">
+                        </art>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article></transition>`
+        })
+        // art start(about)
+        Vue.component('art', {
+            props: ['title', 'content'],
+            template: ` <div class="art col-12">
+                            <div class="art_inner">
+                                <div class="article-title">{{ title }}</div>
+                                <div class="content">
+                                    <p v-html="content">
+                                        // {{ content }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>`
+        })
+        Vue.component('art2', {
+            props: ['title', 'sec1', 'sec2', 'sec3', 'content1', 'content2', 'content3'],
+            template: `<div class="art col-12">
+                            <div class="art_inner">
+                                <div class="article-title">{{ title }}</div>
+                                <div class="content">
+                                    <h5>{{ sec1 }}</h5>
+                                    <p>{{ content1 }}</p>
+                                    <h5>{{ sec2 }}</h5>
+                                    <p>{{ content2 }}</p>
+                                    <h5>{{ sec3 }}</h5>
+                                    <p>{{ content3 }}</p>
+                                </div>
+                            </div>
+                        </div>`
+        })
+        // art end(about)
+
+        //--------------------------------------
+
+        let Portfolio = Vue.component('portfolio', {
+            template: `<transition name="fade" appear=true><article>
+                <h1 class="pageTitle">Portfolio</h1>
+                <div class="article_inner">
+                    <div class="portfolio">
+                        <div class="portfolio_inner container">
+                            <portfolio_type title="排版仿製系列" sectitle="TEMPLATED.co" url="https://templated.co/">
+                            </portfolio_type>
+                            <portfolio_type title="效果仿製系列" sectitle="Online Tutorials"
+                                url="https://www.youtube.com/channel/UCbwXnUipZsLfUckBPsC7Jog"></portfolio_type>
+                        </div>
+                    </div>
+                </div>
+            </article></transition>`
+        })
+        // portfolio_type start(portfolio)
+        Vue.component('portfolio_type', {
+            props: ['title', 'sectitle', 'url'],
+            template: ` <div class="portfolio_type">
+                            <div class="article-title">{{ title }}</div>
+                            <portfolio_type_content :title="sectitle" :url="url"></portfolio_type_content>
+                        </div>`
+        })
+        Vue.component('portfolio_type_content', {
+            props: ['title', 'url'],
+            data: function () {
+                // console.log(this.title);
+                if (this.title == 'TEMPLATED.co') {
+                    return {
+                        portfolio: [
+                            { url: 'https://kelvinliou45.github.io/css_template/template_1.Industrious/index.html', name: 'Industrious', imgurl: 'img/portfolio/1.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_2.Caminar/index.html', name: 'Caminar', imgurl: 'img/portfolio/2.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_3.Hielo/index.html', name: 'Hielo', imgurl: 'img/portfolio/3.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_4.Transitive/index.html', name: 'Transitive', imgurl: 'img/portfolio/4.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_5.Snapshot/index.html', name: 'Snapshot', imgurl: 'img/portfolio/5.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_6.RoadTrip/index.html', name: 'RoadTrip', imgurl: 'img/portfolio/6.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_7.Urban/index.html', name: 'Urban', imgurl: 'img/portfolio/7.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_8.Radius/index.html', name: 'Radius', imgurl: 'img/portfolio/8.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_9.Broadcast/index.html', name: 'Broadcast', imgurl: 'img/portfolio/9.png' },
+                            { url: 'https://kelvinliou45.github.io/css_template/template_10.Visualize/index.html', name: 'Visualize', imgurl: 'img/portfolio/10.png' }
+
+                        ]
+                    }
+                }
+                else if (this.title == 'Online Tutorials') {
+                    return {
+                        portfolio: [
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/borderEffect/index.html', name: 'BorderEffect', imgurl: 'img/portfolio/effect/1.png' },
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/cardEffect/cardEffect1/index.html', name: 'CardEffect1', imgurl: 'img/portfolio/effect/2.png' },
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/cardEffect/cardEffect2/index.html', name: 'CardEffect2', imgurl: 'img/portfolio/effect/3.png' },
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/cardEffect/cardEffect3/index.html', name: 'CardEffect3', imgurl: 'img/portfolio/effect/4.png' },
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/cardEffect/cardEffect4/index.html', name: 'CardEffect4', imgurl: 'img/portfolio/effect/5.png' },
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/cardEffect/cardEffect5/index.html', name: 'CardEffect5', imgurl: 'img/portfolio/effect/6.png' },
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/cardEffect/cardEffect6/index.html', name: 'CardEffect6', imgurl: 'img/portfolio/effect/7.png' },
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/cardEffect/cardEffect7/index.html', name: 'CardEffect7', imgurl: 'img/portfolio/effect/8.png' },
+                            { url: 'https://kelvinliou45.github.io/Sass_cssEffect/cardEffect/cardEffect9/index.html', name: 'CardEffect8', imgurl: 'img/portfolio/effect/9.png' },
+                            { url: 'https://kelvinliou45.github.io/Css_cssEffect/carShow/carShow.html', name: 'CarShow', imgurl: 'img/portfolio/effect/10.png' },
+                            { url: 'https://kelvinliou45.github.io/Css_cssEffect/picShow/picShow2.html', name: 'PicShow', imgurl: 'img/portfolio/effect/13.png' },
+                            { url: 'https://kelvinliou45.github.io/Css_cssEffect/pointerEffect/pointerEffect.html', name: 'PointerEffect', imgurl: 'img/portfolio/effect/14.png' }
+                        ]
+                    }
+                }
+            },
+            template: ` <div class="portfolio_type_content">
+                                    <div class="article-title2"><a :href="url">{{ title }}</a></div>
+                                    <div class="portfolio_boxs row">
+                                        <div class="portfolio_box col-lg-4 col-md-6 col-12" v-for="portfolio in portfolio">
+                                            <a
+                                                :href="portfolio.url">
+                                                <div class="box_inner">
+                                                    <p>{{portfolio.name}}</p>
+                                                    <img :src="portfolio.imgurl" alt="">
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>`
+        })
+        //  portfolio_type end(portfolio)
+
+        //--------------------------------------
+
+
+        const router = new VueRouter({
+            routes: [
+                { path: '/home', component: Home },
+                { path: '/about', component: About },
+                { path: '/portfolio', component: Portfolio }
+            ]
+        })
+
+        new Vue({
+            data: function () {
+                return {
+                    hello: "abcdefgh"
+                }
+            },
+            router
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>
