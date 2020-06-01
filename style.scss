@@ -147,7 +147,7 @@ body {
         .nav_title {
             @include displayFlex(column);
             border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-            padding: 10px;
+            padding: 20px;
             h1{
                 font-size:48px;
                 padding: 0;
