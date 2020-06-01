@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans:wght@400;700&display=swap");
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   opacity: 1;
   transition: 0.7s; }
 
@@ -14,7 +15,7 @@ body {
   background: #fafafa;
   overflow-x: hidden; }
 
-nav {
+.desktopNav {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -24,30 +25,30 @@ nav {
   width: 180px;
   background: #242424;
   color: rgba(255, 255, 255, 0.4); }
-  nav .nav_inner {
+  .desktopNav .nav_inner {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 90%; }
-    nav .nav_inner .nav_title {
+    .desktopNav .nav_inner .nav_title {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       margin-bottom: 30px; }
-      nav .nav_inner .nav_title h1 {
+      .desktopNav .nav_inner .nav_title h1 {
         margin: 0;
         padding: 0;
         font-size: 48px; }
-      nav .nav_inner .nav_title p {
+      .desktopNav .nav_inner .nav_title p {
         margin: 0;
         padding: 0;
         font-size: 12px; }
-    nav .nav_inner .nav_ul {
+    .desktopNav .nav_inner .nav_ul {
       width: 100%;
       margin-bottom: 30px; }
-      nav .nav_inner .nav_ul li {
+      .desktopNav .nav_inner .nav_ul li {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -58,35 +59,35 @@ nav {
         margin-bottom: 15px;
         cursor: pointer;
         transition: 0.3s; }
-        nav .nav_inner .nav_ul li .ch,
-        nav .nav_inner .nav_ul li .en {
+        .desktopNav .nav_inner .nav_ul li .ch,
+        .desktopNav .nav_inner .nav_ul li .en {
           margin: 0;
           padding: 0;
           color: #5e5e5e;
           transition: 0.3s; }
-          nav .nav_inner .nav_ul li .ch:hover,
-          nav .nav_inner .nav_ul li .en:hover {
+          .desktopNav .nav_inner .nav_ul li .ch:hover,
+          .desktopNav .nav_inner .nav_ul li .en:hover {
             color: orangered;
             text-decoration: none; }
-        nav .nav_inner .nav_ul li .active {
+        .desktopNav .nav_inner .nav_ul li .active {
           position: relative;
           color: orangered; }
-          nav .nav_inner .nav_ul li .active::before {
+          .desktopNav .nav_inner .nav_ul li .active::before {
             position: absolute;
             content: "";
             bottom: -3px;
             height: 1px;
             width: 100%;
             background: orangered; }
-    nav .nav_inner .nav_logo {
+    .desktopNav .nav_inner .nav_logo {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       width: 100%; }
-      nav .nav_inner .nav_logo a {
+      .desktopNav .nav_inner .nav_logo a {
         color: #5e5e5e; }
-      nav .nav_inner .nav_logo i {
+      .desktopNav .nav_inner .nav_logo i {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -96,8 +97,72 @@ nav {
         font-size: 20px;
         margin: 0 1px;
         cursor: pointer; }
-        nav .nav_inner .nav_logo i:hover {
+        .desktopNav .nav_inner .nav_logo i:hover {
           color: white; }
+
+.burger {
+  position: fixed;
+  display: none;
+  right: 20px;
+  top: 20px;
+  font-size: 25px;
+  cursor: pointer;
+  z-index: 5; }
+
+.phoneNav {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #242424;
+  color: rgba(255, 255, 255, 0.4);
+  z-index: 6; }
+  .phoneNav .nav_inner .nav_title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    padding: 10px; }
+    .phoneNav .nav_inner .nav_title h1,
+    .phoneNav .nav_inner .nav_title p {
+      padding: 0;
+      margin: 0; }
+  .phoneNav .nav_inner .time {
+    color: white;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 35px; }
+  .phoneNav .nav_inner .nav_ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0; }
+    .phoneNav .nav_inner .nav_ul li .en {
+      margin: 0;
+      padding: 0;
+      color: #5e5e5e;
+      transition: 0.3s; }
+      .phoneNav .nav_inner .nav_ul li .en:hover {
+        color: orangered;
+        text-decoration: none; }
+    .phoneNav .nav_inner .nav_ul li .active {
+      position: relative;
+      color: orangered; }
+      .phoneNav .nav_inner .nav_ul li .active::before {
+        position: absolute;
+        content: "";
+        bottom: -3px;
+        height: 1px;
+        width: 100%;
+        background: orangered; }
 
 .line {
   text-align: right;
@@ -109,154 +174,169 @@ nav {
   color: rgba(0, 0, 0, 0.3);
   background: rgba(0, 0, 0, 0.3); }
 
-main {
+.main {
   margin-left: 180px; }
-  main article {
+  .main article {
     color: #5e5e5e; }
-    main article .pageTitle {
+    .main article .pageTitle {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       width: 100%;
       padding: 20px 0; }
-    main article .article_inner .article-title {
+    .main article .article_inner .article-title {
       margin-top: 25px;
       font-size: 24px;
       margin-bottom: 25px;
       padding-left: 10px;
       border-left: 6px solid #5e5e5e; }
-    main article .article_inner .article-title2 {
+    .main article .article_inner .article-title2 {
       font-size: 16px;
       margin: 25px 0 25px;
       padding-left: 10px;
       border-bottom: 1px solid #5e5e5e; }
-    main article .article_inner .introduce {
+    .main article .article_inner .introduce {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh; }
-      main article .article_inner .introduce .introduce_inner {
+      .main article .article_inner .introduce .introduce_inner {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
         max-width: 700px; }
-        main article .article_inner .introduce .introduce_inner .pic img {
+        .main article .article_inner .introduce .introduce_inner .pic img {
           width: 200px;
           background: white;
           border-radius: 50%;
           border: 2px solid rgba(0, 0, 0, 0.3);
           padding: 5px; }
-        main article .article_inner .introduce .introduce_inner .title p {
+        .main article .article_inner .introduce .introduce_inner .title p {
           font-size: 36px;
           margin: 0;
           padding: 0; }
-        main article .article_inner .introduce .introduce_inner .content p {
+        .main article .article_inner .introduce .introduce_inner .content p {
           margin: 32px 0 32px; }
-        main article .article_inner .introduce .introduce_inner .line {
+        .main article .article_inner .introduce .introduce_inner .line {
           margin: 0 auto;
           margin-bottom: 16px;
           height: 1px;
           width: 50%;
           max-width: 200px;
           background: rgba(0, 0, 0, 0.3); }
-        main article .article_inner .introduce .introduce_inner .other {
+        .main article .article_inner .introduce .introduce_inner .other {
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: center; }
-          main article .article_inner .introduce .introduce_inner .other .color {
+          .main article .article_inner .introduce .introduce_inner .other .color {
             width: 20px;
             height: 20px; }
-            main article .article_inner .introduce .introduce_inner .other .color:nth-child(1) {
+            .main article .article_inner .introduce .introduce_inner .other .color:nth-child(1) {
               background: #472f23; }
-            main article .article_inner .introduce .introduce_inner .other .color:nth-child(2) {
+            .main article .article_inner .introduce .introduce_inner .other .color:nth-child(2) {
               background: #936c65; }
-            main article .article_inner .introduce .introduce_inner .other .color:nth-child(3) {
+            .main article .article_inner .introduce .introduce_inner .other .color:nth-child(3) {
               background: #5f3812; }
-            main article .article_inner .introduce .introduce_inner .other .color:nth-child(4) {
+            .main article .article_inner .introduce .introduce_inner .other .color:nth-child(4) {
               background: #dbcead; }
-            main article .article_inner .introduce .introduce_inner .other .color:nth-child(5) {
+            .main article .article_inner .introduce .introduce_inner .other .color:nth-child(5) {
               background: #afaf5d; }
-    main article .article_inner .expersion {
+    .main article .article_inner .expersion {
       padding: 60px 0; }
-      main article .article_inner .expersion .expersion_inner {
+      .main article .article_inner .expersion .expersion_inner {
         max-width: 960px; }
-        main article .article_inner .expersion .expersion_inner .expersion_box {
+        .main article .article_inner .expersion .expersion_inner .expersion_box {
           padding: 20px;
           box-sizing: border-box; }
-          main article .article_inner .expersion .expersion_inner .expersion_box .box_inner {
+          .main article .article_inner .expersion .expersion_inner .expersion_box .box_inner {
             overflow: hidden; }
-            main article .article_inner .expersion .expersion_inner .expersion_box .box_inner img {
+            .main article .article_inner .expersion .expersion_inner .expersion_box .box_inner img {
               width: 100%;
               margin-bottom: 16px; }
-            main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .time {
+            .main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .time {
               font-size: 14px;
               padding: 5px;
               color: orangered;
               font-weight: 600; }
-            main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .company {
+            .main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .company {
               font-size: 18px;
               padding: 0 5px; }
-            main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .job {
+            .main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .job {
               font-size: 14px;
               margin-bottom: 10px;
               padding: 0 5px; }
-            main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .content {
+            .main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .content {
               padding: 0 5px; }
-            main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .other {
+            .main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .other {
               display: flex;
               flex-direction: row;
               justify-content: flex-start;
               align-items: center;
               margin-top: 30px;
               padding: 0 5px; }
-              main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .other .color {
+              .main article .article_inner .expersion .expersion_inner .expersion_box .box_inner .other .color {
                 width: 20px;
                 height: 20px; }
-    main article .article_inner .skill {
+    .main article .article_inner .skill {
       padding: 48px 0; }
-      main article .article_inner .skill .skill_inner {
+      .main article .article_inner .skill .skill_inner {
         max-width: 960px; }
-        main article .article_inner .skill .skill_inner .skill_box {
+        .main article .article_inner .skill .skill_inner .skill_box {
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
           align-items: center;
           padding-left: 20px;
           margin-bottom: 10px; }
-          main article .article_inner .skill .skill_inner .skill_box p {
+          .main article .article_inner .skill .skill_inner .skill_box p {
             font-weight: 600;
             font-size: 18px;
             margin: 0;
             padding: 0;
             margin-right: 30px; }
-          main article .article_inner .skill .skill_inner .skill_box span {
+          .main article .article_inner .skill .skill_inner .skill_box span {
             font-size: 14px;
             margin-right: 10px;
             color: #fafafa;
             background: #242424;
             padding: 5px 10px;
             border-radius: 3px; }
-    main article .article_inner .about .about_inner {
+    .main article .article_inner .about .about_inner {
       max-width: 960px; }
-      main article .article_inner .about .about_inner .art .art_inner h5 {
+      .main article .article_inner .about .about_inner .art .art_inner h5 {
         padding: 0 5px;
         margin-top: 30px;
         font-size: 18px; }
-      main article .article_inner .about .about_inner .art .art_inner p {
+      .main article .article_inner .about .about_inner .art .art_inner p {
         padding: 0 5px; }
-    main article .article_inner .portfolio .portfolio_inner .portfolio_boxs {
+    .main article .article_inner .portfolio .portfolio_inner .portfolio_boxs {
       margin-bottom: 100px; }
-      main article .article_inner .portfolio .portfolio_inner .portfolio_boxs .portfolio_box {
+      .main article .article_inner .portfolio .portfolio_inner .portfolio_boxs .portfolio_box {
         margin-bottom: 20px; }
-        main article .article_inner .portfolio .portfolio_inner .portfolio_boxs .portfolio_box .box_inner img {
+        .main article .article_inner .portfolio .portfolio_inner .portfolio_boxs .portfolio_box .box_inner img {
           width: 100%; }
-        main article .article_inner .portfolio .portfolio_inner .portfolio_boxs .portfolio_box .box_inner p {
+        .main article .article_inner .portfolio .portfolio_inner .portfolio_boxs .portfolio_box .box_inner p {
           margin: 0;
           padding: 5px; }
+
+@media only screen and (max-width: 768px) {
+  .desktopNav {
+    display: none;
+    background: red; }
+
+  .main {
+    margin-left: 0px;
+    width: 100vw; }
+
+  .burger {
+    display: block; }
+
+  .phoneNav {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

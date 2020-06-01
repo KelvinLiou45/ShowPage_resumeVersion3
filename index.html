@@ -17,7 +17,7 @@
 
 <body>
     <div id="app">
-        <nav>
+        <nav class="desktopNav">
             <div class="nav_inner">
                 <div class="nav_title">
                     <h1>K.</h1>
@@ -60,7 +60,46 @@
             </div>
         </nav>
 
-        <main>
+        <div class="burger"><i class="fa fa-align-justify"></i></div>
+
+        <nav class="phoneNav">
+            <div class="nav_inner">
+                <div class=time><i class="fa fa-times"></i></div>
+                <div class="nav_title">
+                    <h1>K.</h1>
+                    <p>MADE BY</p>
+                    <p>KELVIN</p>
+                </div>
+                <ul class="nav_ul">
+                    <li class="">
+                        <!-- <p class="ch">首頁</p> -->
+                        <!-- <p class="en">Home</p> -->
+                        <!-- <router-link class="en" to="{ name: 'home', params: { userId: 123 }}">Home</router-link> -->
+                        <router-link class="en" to="/home" active-class="active" params="{ header:'123' }" onclick="phoneNavClick()">Home
+                        </router-link>
+                    </li>
+                    <li>
+                        <!-- <p class="ch">關於我</p> -->
+                        <!-- <p class="en">About Me</p> -->
+                        <!-- <router-link class="en" to="{ name:'about', params:{}}">About</router-link> -->
+                        <router-link class="en" to="/about" active-class="active" params="{ header:'123' }" onclick="phoneNavClick()">About Me
+                        </router-link>
+                    </li>
+                    <li>
+                        <!-- <p class="ch">作品集</p> -->
+                        <!-- <p class="en">Portfolio</p> -->
+                        <router-link class="en" to="/portfolio" active-class="active" params="{ header:'123' }" onclick="phoneNavClick()">
+                            Portfolio</router-link>
+                    </li>
+                    <li>
+                        <!-- <p class="ch">聯絡我</p> -->
+                        <p class="en">Contact Me (104)</p>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main">
             <router-view></router-view>
         </main>
     </div>
@@ -398,6 +437,28 @@
             },
             router
         }).$mount('#app')
+
+
+        let burger = document.getElementsByClassName('burger');
+        let phoneNav = document.getElementsByClassName('phoneNav');
+        let time = document.getElementsByClassName('time');
+        phoneNav[0].style.display = "none";
+        burger[0].addEventListener('click', () => {
+            if (phoneNav[0].style.display == "none") {
+                phoneNav[0].style.display = "flex";
+            }
+            else {
+                phoneNav[0].style.display = "none";
+            }
+        })
+        time[0].addEventListener('click', () => {
+            phoneNav[0].style.display = "none";
+        })
+
+        function phoneNavClick(){
+            phoneNav[0].style.display = "none";
+        }
+
     </script>
 </body>
 

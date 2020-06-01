@@ -17,11 +17,12 @@ $whiteColor: #fafafa;
     align-items: $ali;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
     opacity: 1;
     transition: 0.7s;
 }
-.fade-enter{
+.fade-enter {
     opacity: 0;
 }
 .fade-leave-to {
@@ -34,8 +35,11 @@ body {
     overflow-x: hidden;
 }
 
-nav {
-    @include displayFlex();
+.desktopNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     height: 100vh;
     width: 180px;
@@ -99,8 +103,8 @@ nav {
         .nav_logo {
             @include displayFlex();
             width: 100%;
-            a{
-                color:$blackColor2;
+            a {
+                color: $blackColor2;
             }
             i {
                 @include displayFlex();
@@ -111,6 +115,78 @@ nav {
                 cursor: pointer;
                 &:hover {
                     color: white;
+                }
+            }
+        }
+    }
+}
+
+.burger {
+    position: fixed;
+    display: none;
+    right: 20px;
+    top: 20px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.phoneNav {
+    display: none;
+    justify-content: center;
+    align-items:center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: $blackColor;
+    color: rgba(255, 255, 255, 0.4);
+    z-index: 6;
+    .nav_inner {
+        .nav_title {
+            @include displayFlex(column);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 10px;
+            h1,
+            p {
+                padding: 0;
+                margin: 0;
+            }
+        }
+        .time {
+            color: white;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 35px;
+        }
+        .nav_ul {
+            li {
+                @include displayFlex();
+                padding: 30px 0;
+                .en {
+                    margin: 0;
+                    padding: 0;
+                    color: $blackColor2;
+                    transition: 0.3s;
+                    &:hover {
+                        color: orangered;
+                        text-decoration: none;
+                    }
+                }
+                .active {
+                    position: relative;
+                    color: orangered;
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        bottom: -3px;
+                        height: 1px;
+                        width: 100%;
+                        background: orangered;
+                    }
                 }
             }
         }
@@ -128,18 +204,18 @@ nav {
     background: rgba(0, 0, 0, 0.3);
 }
 
-main {
+.main {
     margin-left: 180px;
     article {
         color: $blackColor2;
-        .pageTitle{
+        .pageTitle {
             @include displayFlex();
-            width:100%;
-            padding:20px 0;
+            width: 100%;
+            padding: 20px 0;
         }
         .article_inner {
             .article-title {
-                margin-top:25px;
+                margin-top: 25px;
                 font-size: 24px;
                 margin-bottom: 25px;
                 padding-left: 10px;
@@ -230,8 +306,8 @@ main {
                             .time {
                                 font-size: 14px;
                                 padding: 5px;
-                                color:orangered;
-                                font-weight:600;
+                                color: orangered;
+                                font-weight: 600;
                             }
                             .company {
                                 font-size: 18px;
@@ -290,13 +366,13 @@ main {
                     max-width: 960px;
                     .art {
                         .art_inner {
-                            h5{
-                                padding:0 5px;
-                                margin-top:30px;
-                                font-size:18px;
+                            h5 {
+                                padding: 0 5px;
+                                margin-top: 30px;
+                                font-size: 18px;
                             }
-                            p{
-                                padding:0 5px;
+                            p {
+                                padding: 0 5px;
                             }
                         }
                     }
@@ -325,5 +401,22 @@ main {
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .desktopNav {
+        display: none;
+        background: red;
+    }
+    .main {
+        margin-left: 0px;
+        width: 100vw;
+    }
+    .burger {
+        display: block;
+    }
+    .phoneNav{
+        display:none;
     }
 }
