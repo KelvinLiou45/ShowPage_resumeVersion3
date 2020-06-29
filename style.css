@@ -131,7 +131,8 @@ body {
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-    padding: 20px; }
+    padding: 20px;
+    text-align: center; }
     .phoneNav .nav_inner .nav_title a {
       color: rgba(255, 255, 255, 0.4);
       text-decoration: none; }
