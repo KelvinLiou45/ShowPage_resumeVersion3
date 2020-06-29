@@ -132,6 +132,9 @@ body {
     align-items: center;
     border-bottom: 2px solid rgba(255, 255, 255, 0.4);
     padding: 20px; }
+    .phoneNav .nav_inner .nav_title a {
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none; }
     .phoneNav .nav_inner .nav_title h1 {
       font-size: 48px;
       padding: 0;
