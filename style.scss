@@ -51,6 +51,12 @@ body {
         .nav_title {
             @include displayFlex(column);
             margin-bottom: 30px;
+            cursor: pointer;
+            a{
+                color:rgba(255, 255, 255, 0.4);
+                // font-style:none;
+                text-decoration: none;
+            }
             h1 {
                 margin: 0;
                 padding: 0;

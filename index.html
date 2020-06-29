@@ -20,9 +20,11 @@
         <nav class="desktopNav">
             <div class="nav_inner">
                 <div class="nav_title">
-                    <h1>K.</h1>
-                    <p>MADE BY</p>
-                    <p>KELVIN</p>
+                    <router-link to="/home" active-class="active" onclick="phoneNavClick()">
+                        <h1>K.</h1>
+                        <p>MADE BY</p>
+                        <p>KELVIN</p>
+                    </router-link>
                 </div>
 
                 <ul class="nav_ul">
@@ -75,20 +77,23 @@
                         <!-- <p class="ch">首頁</p> -->
                         <!-- <p class="en">Home</p> -->
                         <!-- <router-link class="en" to="{ name: 'home', params: { userId: 123 }}">Home</router-link> -->
-                        <router-link class="en" to="/home" active-class="active" params="{ header:'123' }" onclick="phoneNavClick()">Home
+                        <router-link class="en" to="/home" active-class="active" params="{ header:'123' }"
+                            onclick="phoneNavClick()">Home
                         </router-link>
                     </li>
                     <li>
                         <!-- <p class="ch">關於我</p> -->
                         <!-- <p class="en">About Me</p> -->
                         <!-- <router-link class="en" to="{ name:'about', params:{}}">About</router-link> -->
-                        <router-link class="en" to="/about" active-class="active" params="{ header:'123' }" onclick="phoneNavClick()">About Me
+                        <router-link class="en" to="/about" active-class="active" params="{ header:'123' }"
+                            onclick="phoneNavClick()">About Me
                         </router-link>
                     </li>
                     <li>
                         <!-- <p class="ch">作品集</p> -->
                         <!-- <p class="en">Portfolio</p> -->
-                        <router-link class="en" to="/portfolio" active-class="active" params="{ header:'123' }" onclick="phoneNavClick()">
+                        <router-link class="en" to="/portfolio" active-class="active" params="{ header:'123' }"
+                            onclick="phoneNavClick()">
                             Portfolio</router-link>
                     </li>
                     <li>
@@ -112,47 +117,47 @@
 
         let Home = Vue.component('home', {
             template: `<transition name="fade" appear=true><article>
-    <div class="article_inner">
-        <introduce imgurl="./img/avatar.jpg" title="立志成為 前端開發職人"
-            content="我是一名熱衷於學習的前端開發人員，既使工作再忙碌，也會利用休閒時間進修自己。現今除了學習程式語言以外，由於我對實用、美麗的設計相當感興趣，所以對於UX/UI也略有著墨學習，希望終有一日能將自身所學回饋於社會，並感動他人。">
-        </introduce>
-        <div class="line">
-            Manners maketh man.
-        </div>
-        <expersion title="工作經歷、學歷"></expersion>
-        <div class="line">
-            You are braver than you believe.
-        </div>
-        <skill title="技能綜述"></skill>
-    </div>
-</article></transition>`
+                            <div class="article_inner">
+                                <introduce imgurl="./img/avatar.jpg" title="立志成為 前端開發職人"
+                                    content="我是一名熱衷於學習的前端開發人員，既使工作再忙碌，也會利用休閒時間進修自己。現今除了學習程式語言以外，由於我對實用、美麗的設計相當感興趣，所以對於UX/UI也略有著墨學習，希望終有一日能將自身所學回饋於社會，並感動他人。">
+                                </introduce>
+                                <div class="line">
+                                    Manners maketh man.
+                                </div>
+                                <expersion title="工作經歷、學歷"></expersion>
+                                <div class="line">
+                                    You are braver than you believe.
+                                </div>
+                                <skill title="技能綜述"></skill>
+                            </div>
+                        </article></transition>`
         })
         //introduce start(Home)
         Vue.component('introduce', {
             props: ['imgurl', 'title', 'content'],
             template: `<div class="introduce">
-            <div class="introduce_inner container">
-                <div class="row">
-                    <div class="pic col-12">
-                        <img :src="imgurl" alt="">
-                    </div>
-                    <div class="title col-12">
-                        <p>{{ title }}</p>
-                    </div>
-                    <div class="content col-12">
-                        <p>{{ content }}</p>
-                    </div>
-                    <!-- <div class="line col-12"></div> -->
-                    <div class="other col-12">
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                    </div>
-                </div>
-            </div>
-        </div>`
+                            <div class="introduce_inner container">
+                                <div class="row">
+                                    <div class="pic col-12">
+                                        <img :src="imgurl" alt="">
+                                    </div>
+                                    <div class="title col-12">
+                                        <p>{{ title }}</p>
+                                    </div>
+                                    <div class="content col-12">
+                                        <p>{{ content }}</p>
+                                    </div>
+                                    <!-- <div class="line col-12"></div> -->
+                                    <div class="other col-12">
+                                        <div class="color"></div>
+                                        <div class="color"></div>
+                                        <div class="color"></div>
+                                        <div class="color"></div>
+                                        <div class="color"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
         })
         //introduce end
 
@@ -160,33 +165,33 @@
         Vue.component('expersion', {
             props: ['title'],
             template: `<div class="expersion">
-            <div class="expersion_inner container">
-                <div class="article-title">
-                    {{title}}
-                </div>
-                <div class="row">
-                    <expersion_box imgurl="img/fujitec.png"
-                    time="2020/06 - 2017/04"
-                    company="富士達股份有限公司"
-                    job="營業專員"
-                    content="為了提升自己在業務領域的能力，我從B2C的茂訊電腦轉職到B2B模式的富士達。我主要負責高雄、屏東地區的市場拓展。任職期間順利與數名新客戶締結合作關係，簽約案件共計10案，營業額約莫5千6百萬。
-                    "></expersion_box>
-                    
-                    <expersion_box imgurl="img/create.jpg"
-                    time="2017/02 - 2014/12"
-                    company="茂訊電腦股份有限公司"
-                    job="業務、客服工程師"
-                    content="因為學生時期的我非常不擅與人交際，所以決定踏入業務的領域來改變自己。前期我擔任銷售業務，後期則是負責售後的客服工程師。除了訓練到門市及展場的銷售技巧，也學習到經銷商在銷售及售後的一條龍服務模式。(也因為每個月背負的100萬業績壓力，提升自己承受壓力的能力)"></expersion_box>
+                            <div class="expersion_inner container">
+                                <div class="article-title">
+                                    {{title}}
+                                </div>
+                                <div class="row">
+                                    <expersion_box imgurl="img/fujitec.png"
+                                    time="2020/06 - 2017/04"
+                                    company="富士達股份有限公司"
+                                    job="營業專員"
+                                    content="為了提升自己在業務領域的能力，我從B2C的茂訊電腦轉職到B2B模式的富士達。我主要負責高雄、屏東地區的市場拓展。任職期間順利與數名新客戶締結合作關係，簽約案件共計10案，營業額約莫5千6百萬。
+                                    "></expersion_box>
+                                    
+                                    <expersion_box imgurl="img/create.jpg"
+                                    time="2017/02 - 2014/12"
+                                    company="茂訊電腦股份有限公司"
+                                    job="業務、客服工程師"
+                                    content="因為學生時期的我非常不擅與人交際，所以決定踏入業務的領域來改變自己。前期我擔任銷售業務，後期則是負責售後的客服工程師。除了訓練到門市及展場的銷售技巧，也學習到經銷商在銷售及售後的一條龍服務模式。(也因為每個月背負的100萬業績壓力，提升自己承受壓力的能力)"></expersion_box>
 
-                    <expersion_box imgurl="img/stu.jpg"
-                    time="2017/02 - 2014/12"
-                    company="樹德科技大學"
-                    job="學士、助教"
-                    content="就學期間順利通過java的oracle考試認證(OCJP)，以及考取Parallax Certified Professional (PCP)證照。認真負責任的學習態度，也讓我有機會擔任'課程'助教的工作，協助製作教材、並體驗難得的授課經驗。
-                    "></expersion_box>
-                </div>
-            </div>
-        </div>`
+                                    <expersion_box imgurl="img/stu.jpg"
+                                    time="2017/02 - 2014/12"
+                                    company="樹德科技大學"
+                                    job="學士、助教"
+                                    content="就學期間順利通過java的oracle考試認證(OCJP)，以及考取Parallax Certified Professional (PCP)證照。認真負責任的學習態度，也讓我有機會擔任'課程'助教的工作，協助製作教材、並體驗難得的授課經驗。
+                                    "></expersion_box>
+                                </div>
+                            </div>
+                        </div>`
         })
         Vue.component('expersion_box', {
             props: ['imgurl', 'time', 'company', 'job', 'content'],
@@ -274,19 +279,19 @@
                     <div class="row">
 
                         <art title="個人介紹"
-                            content="我的名字是劉承楷，英文名字是Kelvin，出生於高雄，家中成員有媽媽及一個哥哥。從小家中雖然不算富裕，但家裡貫徹正派的言教及身教，使我養成了「誠實」及「踏實」的性格。也拜這個性格所賜，讓自己比較容易找到知心的朋友，在工作上也能很快與客戶建立關係。「誠以待人」也是我在生活上特別注視的美德。">
+                            content="我的名字是劉承楷，英文名字是Kelvin，出生於高雄，家中成員有媽媽及一個哥哥。家裡貫徹正派的言教及身教，讓我養成了「誠實」及「踏實」的美德，不但比較容易找到知心的朋友，在工作上也能很快與客戶建立關係。因為我喜歡日本特有的「職人精神」，所以會要求自己不管在生活及工作上，都要以認真的態度面對，並將事情做得盡善盡美。">
                         </art>
 
                         <art2 title="工作經歷" sec1="2020~2017- 富士達股份有限公司" sec2="2017~2014- 茂訊電腦股份有限公司" sec3="2014 Before- 不二致果(高雄不二家)" 
-                        content1="為了提升自己在業務領域的能力，從B2C的茂訊電腦轉職到B2B模式的富士達。我主要負責高雄、屏東地區的市場拓展。任職期間順利與數名新客戶締結合作關係，簽約案件共計10案，營業額約莫5千6百萬。
-                    " content2="因為學生時期的自己非常不擅與人交際，所以決定踏入業務的領域來改變自己。前期我擔任銷售業務，後期則是負責售後的客服工程師。除了訓練到門市及展場的銷售技巧，也學習到經銷商在銷售及售後的一條龍服務模式。(也因為每個月背負的100萬業績壓力，提升自己承受壓力的能力)" 
+                        content1="為了提升自己在業務領域的能力，從B2C的茂訊電腦轉職到B2B模式的富士達。我主要負責高雄、屏東地區的市場拓展。任職期間順利與數名新客戶締結合作關係，營業額約莫5千6百萬。
+                    " content2="因為學生時期的自己非常不擅與人交際，所以決定踏入業務的領域來改變自己。前期我擔任銷售業務，後期則是負責售後的客服工程師。除了訓練到門市及展場的銷售技巧，也學習到經銷商在銷售及售後的一條龍服務模式。(也因為每個月背負的業績壓力，提升了自己的抗壓能力)" 
                     content3="
                     學生時期的打工經驗，負責產品的包裝及裝箱作業。因為受到主管的賞識，被挑選為小組長，帶領4名工讀生進行訂單的包裝作業。">
                         </art2>
 
 
-                        <art title="興趣及展望:" content="我平時喜歡閱讀設計、心理學相關的書籍，也喜歡收看日本的綜藝節目。日本特有的「職人精神」讓我深深的著迷，它不只是對於工作的敬業態度，它也能牽引身邊的事物，讓環境變得更好。 所以我也時常期勉自己在工作上也能帶有一份「職人精神」，盡心盡力的專注、努力，展現出能令人感動的專業能力。
-自學前端技術已有將近一年的時間，不但重拾了過去擔任工程師的熱情，也因為學習了先端技術，實力變得更加堅強。我將會展現自身所學並證明自己的專業能力，也期盼貴公司能給予面試的機會，謝謝。"></art>
+                        <art title="興趣及展望:" content="我平時喜歡閱讀設計、心理學相關的書籍，也喜歡收看日本的綜藝節目。日本特有的「職人精神」讓我深深的著迷，它不只是對於工作的敬業態度，它也能牽引身邊的事物，讓環境變得更好。 所以我也期勉自己在工作上也能帶有一份「職人精神」，展現出能令人感動的專業能力。
+自學前端技術已有將近一年的時間，針對基礎的HTML, CSS, Javascript重新打穩以外，也因為學習了先端技術(Vue. React, Node)，能力更有所提升。期盼貴公司能給予面試的機會，我可以用工作上的表現來證明自己，謝謝。"></art>
                         
 
                     </div>
@@ -447,7 +452,7 @@
             phoneNav[0].style.display = "none";
         })
 
-        function phoneNavClick(){
+        function phoneNavClick() {
             phoneNav[0].style.display = "none";
         }
 

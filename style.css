@@ -36,7 +36,11 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      cursor: pointer; }
+      .desktopNav .nav_inner .nav_title a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none; }
       .desktopNav .nav_inner .nav_title h1 {
         margin: 0;
         padding: 0;
